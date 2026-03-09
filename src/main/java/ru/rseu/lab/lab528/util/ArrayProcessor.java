@@ -1,9 +1,12 @@
-package ru.rseu.lab.lab523.util;
+package ru.rseu.lab.lab528.util;
 
-import ru.rseu.lab.lab523.exception.ElementNotFoundException;
+import ru.rseu.lab.lab528.exception.ElementNotFoundException;
+import ru.rseu.lab.lab528.resourcer.ProjectResourcer;
+import ru.rseu.lab.lab528.resourcer.Resourcer;
 
 public class ArrayProcessor {
     private final IntArrayWorker arrayWorker;
+    private final Resourcer resourcer = ProjectResourcer.getInstance();
 
     public ArrayProcessor(IntArrayWorker arrayWorker) {
         this.arrayWorker = arrayWorker;
@@ -16,8 +19,10 @@ public class ArrayProcessor {
             }
         }
 
-        System.out.println("Odd element not found");
-        throw new ElementNotFoundException("Odd element not found");
+
+        var notFoundMessage = resourcer.getString("message.odd.not.found");
+        System.out.println(notFoundMessage);
+        throw new ElementNotFoundException(notFoundMessage);
     }
 
     private int findLastEven() {
@@ -27,8 +32,9 @@ public class ArrayProcessor {
             }
         }
 
-        System.out.println("Even element not found");
-        throw new ElementNotFoundException("Even element not found");
+        var notFoundMessage = resourcer.getString("message.even.not.found");
+        System.out.println(notFoundMessage);
+        throw new ElementNotFoundException(notFoundMessage);
     }
 
     private void exchange(int firstIndex, int secondIndex) {
@@ -44,10 +50,11 @@ public class ArrayProcessor {
 
             exchange(firstOddIndex, lastEvenIndex);
 
-            System.out.println("Swapped successfully");
+            var swapSuccessfulMessage = resourcer.getString("message.swap.successful");
+            System.out.println(swapSuccessfulMessage);
             System.out.println(arrayWorker);
         } catch (ElementNotFoundException e) {
-            System.out.println("Swap failed: " + e.getMessage());
+            System.out.println(resourcer.getString("message.swap.failed") + e.getMessage());
         }
     }
 }

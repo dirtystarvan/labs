@@ -1,4 +1,4 @@
-package ru.rseu.lab.lab523.exception;
+package ru.rseu.lab.lab528.exception;
 
 public class ElementNotFoundException extends RuntimeException {
     public ElementNotFoundException(String message) {

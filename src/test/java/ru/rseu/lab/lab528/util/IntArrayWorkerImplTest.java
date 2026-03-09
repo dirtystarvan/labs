@@ -1,4 +1,4 @@
-package ru.rseu.lab.lab523.util;
+package ru.rseu.lab.lab528.util;
 
 import org.junit.jupiter.api.Test;
 
