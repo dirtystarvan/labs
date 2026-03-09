@@ -9,7 +9,7 @@ import java.util.Locale;
 
 public class ClientRunner {
 	public static void main(String[] args) {
-		Locale.setDefault(Locale.US);
+//		Locale.setDefault(Locale.US);
 		IntArrayWorker arrayWorker = new IntArrayWorkerImpl(1, 2, 3, 4);
 		ArrayProcessor arrayProcessor = new ArrayProcessor(arrayWorker);
 

@@ -1,25 +1,12 @@
 package ru.rseu.lab.lab528.util;
 
-/*
-*
-* Поле одномерный массив типа int
-* Методы реализуют получение и изменениме элементов массива
-* Метод возвращающий массив целиком отсутствует
-* Параметрами конструктора должны быть элементы массива, количество которых заранее неизвестно
-* Метод toString переопределен
-*
-* Спроектировать класс B
-*, одним из параметров конструктора класса должеен быть объект класса А
-*
-* Найти первый элемент массива с нечетным значением и последний элемент с четным значением
-* Поменять их местами
-* В случае отсутствия четных или нечетных элементов вывести лог
-*
-* */
+import ru.rseu.lab.lab528.resourcer.ProjectResourcer;
+import ru.rseu.lab.lab528.resourcer.Resourcer;
 
 import java.util.Arrays;
 
 public class IntArrayWorkerImpl implements IntArrayWorker {
+    private final Resourcer resourcer = ProjectResourcer.getInstance();
     private final int[] innerArray;
 
     public IntArrayWorkerImpl(int... digits) {
@@ -49,12 +36,8 @@ public class IntArrayWorkerImpl implements IntArrayWorker {
         if (position < 0 || position > innerArray.length - 1) {
             throw new IllegalArgumentException(
                     String.format(
-                            "There is no position=%d in inner array. Legal indexes are: [%d, %d]",
-                            position,
-                            0,
-                            innerArray.length == 0
-                                    ? 0
-                                    : innerArray.length - 1
+                            resourcer.getString("message.illegal.position"),
+                            position
                     )
             );
         }
